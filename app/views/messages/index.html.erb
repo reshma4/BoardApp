@@ -1,0 +1,5 @@
+<% @messages.each do |message| %>
+    <h1><%= message.title %></h1>
+    <%= link_to "View Message", message_path(message), class: "btn btn-default" %>
+<% end %>
+<%= link_to "New Message", new_message_path %>

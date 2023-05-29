@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>                                                                                                                                                                                          
+  <head>
+    <title>BoardApp</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="navbar navbar_default">
+      <div class="container">      
+        <%= link_to "Message Board", root_path, class: "navbar-brand" %>                                                                                                                                                                             
+        <ul class="nav navbar-nav">                                                                                                                                                                                                                                                                              
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Log In", new_user_session_path %></li>
+          <% end %>
+        </ul>
+        <% if user_signed_in? %>
+          <p><%= link_to "New Message", new_message_path, class: "navbar-right navbar-text navbar-link" %></p>
+        <% end %>
+      </div>
+    </div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

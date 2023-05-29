@@ -1,0 +1,3 @@
+<p><%= comment.content %></p>
+<%= link_to "Edit", edit_message_comment_path(comment.message, comment) %>
+<%= link_to "Delete", message_comment_path(comment.message, comment), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
